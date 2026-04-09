@@ -1,4 +1,0 @@
-flasker
-flasgger
-flasker-sqlalchemy
-psycopg2-binary
