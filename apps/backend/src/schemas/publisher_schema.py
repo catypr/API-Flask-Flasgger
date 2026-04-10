@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 
-class Publisher(BaseModel):
+class PublisherSchema(BaseModel):
     id: int | None = None
     nome: str
     site: str | None = None

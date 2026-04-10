@@ -1,6 +1,6 @@
 from pydantic import BaseModel 
 
-class Title(BaseModel):
+class TitleSchema(BaseModel):
     id: str
     nome: str
     descricao: str | None = None
