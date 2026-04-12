@@ -1,44 +1,45 @@
 # API-Flask-Flasgger
 
-API para listagem de Livros.
+Esta é uma API desenvolvida em Python utilizando o framework Flask. O sistema permite gerenciar um catálogo completo de livros, incluindo informações sobre autores, editoras, títulos e disponibilidade de estoque.
 
-Tecnologias Utilizadas
+🚀 Tecnologias Utilizadas
+- Python 3.x
 - Flask
 - Flasgger
 - PostgreSQL
-- Doker 
+- Docker 
 - Pydantic
 - Alembic (migrations)
 
 ## Repositório
 https://github.com/Catypr/API-Flask-Flasgger
 
-## Como rodar o projeto
+## 🔧 Como rodar o projeto
 1. Clone o repositório:
 
 git clone https://github.com/Catypr/API-Flask-Flasgger.git 
 cd API-Flask-Flasgger
 
-2. Suba o banco de dados com o Docker:
-docker compose up -d
+2. Criar e ativar o ambiente virtual:
+python -m venv venv 
+venv\Scripts\activate
 
-3. Acesse o backend:
-cd apps/backend
+3. Instalar as dependências:
+pip install -r requirements.txt
 
-4. Instale/atualize as dependências:
-uv sync
+4. Configurar as variáveis de ambiente:
+Crie um arquivo .env na raiz do projeto e adicione as configurações necessárias (exemplo):
+FLASK_APP=src/app.py
+FLASK_ENV=development
+DATABASE_URL=sqlite:///database.db
 
-5. Execute as migtations:
-uv run alembic upgrade head
+5. Executar as migrações e o Seed:
+flask db upgrade
+python src/scripts/seed.py
 
-6. Inicie a aplicação Flask:
-uv run flasck --app src.app run 
+6. Rodar a aplicação:
+flask run 
 
-## Variáveis de ambiente
-o backend carrega as configurações do arquivo `apps/backend/.env`.
-Por padrão ele usa:
-DATABASE_URL=postgresql://devuser:devpassword@localhost:5433/turismo_db
-
-## Documentação da API
-A documentação interativa (Swagger) estará disponível em:
+## 📖 Documentação (Swagger)
+Após iniciar o servidor, você pode acessar a documentação interativa da API através do navegador no endereço:
 http://localhost:5000/apidocs

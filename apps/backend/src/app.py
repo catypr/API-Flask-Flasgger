@@ -3,17 +3,22 @@ from flasgger import Swagger
 import os
 from dotenv import load_dotenv
 from .database import init_db, db
+from flask_migrate import Migrate
 
 from .schemas.author_schema import AuthorSchema
 from .schemas.book_schema import BookSchema
 from .schemas.publisher_schema import PublisherSchema
 from .schemas.title_schema import TitleSchema
 
+from .models import Author, Book, Publisher, Title
+
 load_dotenv()
 
 def create_app():
     app = Flask(__name__)
     init_db(app)
+
+    Migrate(app, db)
 
     swagger_template = {
         "swagger": "2.0",
